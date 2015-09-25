@@ -94,6 +94,10 @@ gulp.task('copy', function() {
    gulp.src('src/img/*.*')
    .pipe(gulp.dest('site/img/')); 
 });
+gulp.task('video', function() {
+   gulp.src('src/video/*.*')
+   .pipe(gulp.dest('site/video/'));
+});
 
 gulp.task('delete', function (cb) {
     rimraf('./site', cb);
@@ -194,4 +198,4 @@ gulp.task('watch', function() {
 
 
 gulp.task('default', ['browser-sync', 'watch'], function() {});
-gulp.task('build', ['html','font','sprite','copy','js','sass'], function() {});
+gulp.task('build', ['html','font','sprite','copy', 'video','js','sass'], function() {});

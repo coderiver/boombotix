@@ -1,24 +1,48 @@
 // fonts
 
-+font(DINCondensed-Light, 2F42E5_1_0)
++font(DINCondensed-Light, 2F42E5_0_0)
+=dinl
+	font-family: 'DINCondensed-Light', sans-serif
+	-webkit-font-smoothing: antialiased
+	-moz-osx-font-smoothing: grayscale
+
++font(DINCondensed-Regular, 2F42E5_1_0)
 =din
 	font-family: 'DINCondensed-Regular', sans-serif
-+font(DINCondensed-Light, 2F42E5_0_0)
-=din-l
-	font-family: 'DINCondensed-Light', sans-serif
+	-webkit-font-smoothing: antialiased
+	-moz-osx-font-smoothing: grayscale
 =font
-	font-family: 'Merriweather', serif	
+	font-family: 'Merriweather'
+	-webkit-font-smoothing: antialiased
+	-moz-osx-font-smoothing: grayscale
 
 
 body
 	+font
 	font-size: 18px
 	line-height: 1.4
+	color: #f2f2f1
 
 
 // common blocks
-.text
-	+din-l
+.btn
+	display: inline-block
+	height: 73px
+	width: 265px
+	border-radius: 37px
+	border: 2px solid #b59171
+	+font
+	font-size: 23px
+	font-style: italic
+	letter-spacing: 4px
+	line-height: 65px
+	text-transform: uppercase
+	background: transparent
+	color: #f2f2f1 
+	+tr(background 300ms)
+	&:hover
+		background: #b59171
+
 
 
 

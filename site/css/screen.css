@@ -21,6 +21,11 @@ ul, ol { list-style-type: none; }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) { * { -webkit-text-size-adjust: none; } }
 table { border-spacing: 0; border-collapse: collapse; width: 100%; }
 
+html { box-sizing: border-box; }
+
+* { box-sizing: border-box; }
+*:before, *:after { box-sizing: border-box; }
+
 .icon-codedby { width: 47px; height: 5px; background-image: url("../img/icons.png"); background-position: 0px -9px; }
 
 .icon-coderiver { width: 49px; height: 5px; background-image: url("../img/icons.png"); background-position: 0px 0px; }
@@ -34,11 +39,30 @@ table { border-spacing: 0; border-collapse: collapse; width: 100%; }
 
 .icon-skrill:before { content: ""; }
 
-@font-face { font-family: DINCondensed-Light; src: url("fonts/2F42E5_1_0.eot"); src: url("fonts/2F42E5_1_0.eot?#iefix") format("embedded-opentype"), url("fonts/2F42E5_1_0.woff2") format("woff2"), url("fonts/2F42E5_1_0.woff") format("woff"), url("fonts/2F42E5_1_0.ttf") format("truetype"); font-weight: normal; font-style: normal; }
 @font-face { font-family: DINCondensed-Light; src: url("fonts/2F42E5_0_0.eot"); src: url("fonts/2F42E5_0_0.eot?#iefix") format("embedded-opentype"), url("fonts/2F42E5_0_0.woff2") format("woff2"), url("fonts/2F42E5_0_0.woff") format("woff"), url("fonts/2F42E5_0_0.ttf") format("truetype"); font-weight: normal; font-style: normal; }
-body { font-family: "Merriweather", serif; font-size: 18px; line-height: 1.4; }
+@font-face { font-family: DINCondensed-Regular; src: url("fonts/2F42E5_1_0.eot"); src: url("fonts/2F42E5_1_0.eot?#iefix") format("embedded-opentype"), url("fonts/2F42E5_1_0.woff2") format("woff2"), url("fonts/2F42E5_1_0.woff") format("woff"), url("fonts/2F42E5_1_0.ttf") format("truetype"); font-weight: normal; font-style: normal; }
+body { font-family: "Merriweather"; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-size: 18px; line-height: 1.4; color: #f2f2f1; }
 
-.text { font-family: "DINCondensed-Light", sans-serif; }
+.btn { display: inline-block; height: 73px; width: 265px; border-radius: 37px; border: 2px solid #b59171; font-family: "Merriweather"; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-size: 23px; font-style: italic; letter-spacing: 4px; line-height: 65px; text-transform: uppercase; background: transparent; color: #f2f2f1; transition: background 300ms; }
+.btn:hover { background: #b59171; }
+
+.out { position: relative; z-index: 2; }
+
+.topper { position: relative; height: 100vh; background: #ccc; }
+
+.video { position: absolute; top: 0; bottom: 0; right: 0; left: 0; overflow: hidden; }
+
+video#video1 { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; -webkit-transform: translateX(-50%) translateY(-50%); -ms-transform: translateX(-50%) translateY(-50%); transform: translateX(-50%) translateY(-50%); }
+
+.push { height: 84vh; }
+
+.footer { position: fixed; bottom: 0; left: 0; right: 0; height: 84vh; padding: 125px 20px 40px; background: url(../img/footer-bg.jpg); background-repeat: no-repeat; background-size: cover; background-position: 50% 50%; text-align: center; color: #f2f2f1; z-index: 1; }
+.footer:before { content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(14, 13, 10, 0.85); z-index: -1; }
+.footer .footer__topper { margin-bottom: 105px; }
+.footer .footer__row { margin-bottom: 27px; }
+.footer .footer__content { margin-bottom: 200px; }
+.footer .footer__title { margin-bottom: 35px; font-size: 40px; font-style: italic; font-weight: 300; line-height: 1; text-transform: uppercase; }
+.footer .footer__bottom p { font-family: "DINCondensed-Light", sans-serif; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-size: 25px; text-transform: uppercase; }
 
 
 
