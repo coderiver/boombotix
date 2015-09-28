@@ -46,15 +46,19 @@ body { font-family: "Merriweather"; -webkit-font-smoothing: antialiased; -moz-os
 .btn { display: inline-block; height: 73px; width: 265px; border-radius: 37px; border: 2px solid #b59171; font-family: "Merriweather"; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-size: 23px; font-style: italic; letter-spacing: 4px; line-height: 65px; text-transform: uppercase; background: transparent; color: #f2f2f1; transition: background 300ms; }
 .btn:hover { background: #b59171; }
 
-.out { position: relative; z-index: 2; }
+.out { position: relative; pointer-events: none; z-index: 2; }
 
-.topper { position: relative; height: 100vh; background: #ccc; }
+.topper { position: relative; height: 100vh; background: #ccc; pointer-events: auto; }
 
 .video { position: absolute; top: 0; bottom: 0; right: 0; left: 0; overflow: hidden; }
+.video video { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; -webkit-transform: translateX(-50%) translateY(-50%); -ms-transform: translateX(-50%) translateY(-50%); transform: translateX(-50%) translateY(-50%); }
+.video.video_intro { z-index: 1; }
+.video.video_main { visibility: hidden; opacity: 0; z-index: 2; }
+.video.video_explosion { visibility: hidden; opacity: 0; background: url(../img/boombotix_final.jpg); background-repeat: no-repeat; background-size: cover; background-position: 50% 50%; z-index: 3; }
 
-video#video1 { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; -webkit-transform: translateX(-50%) translateY(-50%); -ms-transform: translateX(-50%) translateY(-50%); transform: translateX(-50%) translateY(-50%); }
+.section { min-height: 500px; }
 
-.push { height: 84vh; }
+.fp-auto-height.fp-section.push { height: 84vh !important; pointer-events: none; }
 
 .footer { position: fixed; bottom: 0; left: 0; right: 0; height: 84vh; padding: 125px 20px 40px; background: url(../img/footer-bg.jpg); background-repeat: no-repeat; background-size: cover; background-position: 50% 50%; text-align: center; color: #f2f2f1; z-index: 1; }
 .footer:before { content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(14, 13, 10, 0.85); z-index: -1; }

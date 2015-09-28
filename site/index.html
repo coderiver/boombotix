@@ -17,16 +17,33 @@
 <body>
 <!-- BEGIN  out-->
 <div class="out">
-	<!-- start screen -->
-	<div class="topper">
-		<div class="video">
-			<video id="video1" autoplay loop mute poster="">
-				<source src="video/boombotix_boomboom.webm" type='video/webm'>
-			</video>
+	<div id="fullpage">
+		<div class="section">
+			<!-- start screen -->
+			<div class="topper">
+				<div id="video-intro" class="video video_intro">
+					<video autoplay mute poster="">
+						<source src="video/boombotix_intro.webm" type='video/webm'>
+					</video>
+				</div>
+				<div id="video-main" class="video video_main">
+					<video autoplay loop mute poster="">
+						<source src="video/boombotix_boomboom.webm" type='video/webm'>
+					</video>
+				</div>
+				<div id="video-explosion" class="video video_explosion">
+					<video id="bla" mute poster="">
+						<source src="video/boombotix_final_22.09_explosion.webm" type='video/webm'>
+					</video>
+				</div>
+			</div>
 		</div>
+		<div class="section" style="background: blue;"></div>
+		<div class="section fp-auto-height" style="background: yellow;"></div>
+		<div class="section" style="background: green;"></div>
+		<!-- push block for footer parallax effect -->
+		<div class="section push fp-auto-height" style="background: transparent;"></div>
 	</div>
-	<!-- push block for footer parallax effect -->
-	<div class="push"></div>
 
 </div>
 

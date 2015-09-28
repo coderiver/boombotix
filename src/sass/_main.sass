@@ -1,6 +1,7 @@
 // main styles
 .out
 	position: relative
+	pointer-events: none
 	z-index: 2
 	
 // topper
@@ -8,26 +9,43 @@
 	position: relative
 	height: 100vh
 	background: #ccc 
+	pointer-events: auto
 .video
 	position: absolute
 	top: 0
 	bottom: 0
 	right: 0
-	left: 0		
+	left: 0
 	overflow: hidden
-video#video1
-	position: absolute
-	top: 50%
-	left: 50%
-	min-width: 100%
-	min-height: 100%
-	width: auto
-	height: auto
-	transform: translateX(-50%) translateY(-50%)
+	video
+		position: absolute
+		top: 50%
+		left: 50%
+		min-width: 100%
+		min-height: 100%
+		width: auto
+		height: auto
+		transform: translateX(-50%) translateY(-50%)
+	&.video_intro
+		z-index: 1	
+	&.video_main
+		visibility: hidden
+		opacity: 0	
+		z-index: 2
+	&.video_explosion
+		visibility: hidden
+		opacity: 0
+		background: url(../img/boombotix_final.jpg)
+		+cover 
+		z-index: 3	
 
+.section
+	min-height: 500px		
+			
 // footer
-.push
-	height: 84vh
+.fp-auto-height.fp-section.push
+	height: 84vh!important
+	pointer-events: none
 .footer
 	position: fixed
 	bottom: 0

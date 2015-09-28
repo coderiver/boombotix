@@ -98,6 +98,10 @@ gulp.task('video', function() {
    gulp.src('src/video/*.*')
    .pipe(gulp.dest('site/video/'));
 });
+gulp.task('fonts', function() {
+   gulp.src('src/fonts/*.*')
+   .pipe(gulp.dest('site/css/fonts/'));
+});
 
 gulp.task('delete', function (cb) {
     rimraf('./site', cb);
@@ -198,4 +202,4 @@ gulp.task('watch', function() {
 
 
 gulp.task('default', ['browser-sync', 'watch'], function() {});
-gulp.task('build', ['html','font','sprite','copy', 'video','js','sass'], function() {});
+gulp.task('build', ['html','font','sprite','copy', 'video','fonts', 'js','sass'], function() {});
