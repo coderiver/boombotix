@@ -8,12 +8,31 @@
 .topper
 	position: relative
 	height: 100vh
+	overflow-y: auto
 	background: #ccc 
 	pointer-events: auto
+	.topper__in
+		height: 2000px
+		&.is-transformed
+			pointer-events: none
+.trigger
+	height: 20px
+	background: red
+.animation
+	position: absolute
+	top: 0
+	height: 100vh 
+	width: 100% 
+	left: 0
+	background: green  
+	visibility: hidden
+	opacity: 0
+	z-index: 4 
+
 .video
 	position: absolute
 	top: 0
-	bottom: 0
+	height: 100vh 
 	right: 0
 	left: 0
 	overflow: hidden
@@ -40,7 +59,8 @@
 		z-index: 3	
 
 .section
-	min-height: 500px		
+	min-height: 500px	
+	overflow: hidden	
 			
 // footer
 .fp-auto-height.fp-section.push
