@@ -450,28 +450,45 @@ $(document).ready(function() {
 	});	
 
 
+	// throttle
+
+	function throttle(fn, threshhold, scope) {
+	  threshhold || (threshhold = 250);
+	  var last,
+	      deferTimer;
+	  return function () {
+	    var context = scope || this;
+
+	    var now = +new Date,
+	        args = arguments;
+	    if (last && now < last + threshhold) {
+	      // hold on to it
+	      clearTimeout(deferTimer);
+	      deferTimer = setTimeout(function () {
+	        last = now;
+	        fn.apply(context, args);
+	      }, threshhold);
+	    } else {
+	      last = now;
+	      fn.apply(context, args);
+	    }
+	  };
+	}
+
 	//scroll magic animations
-	
 
 
 	$(function () { // wait for document ready
 		// init controller
 		var controller = new ScrollMagic.Controller({container: ".topper"});
-
 		var videoWrap = document.getElementById('video-explosion');
-
-		function play() {
-			
-			
-		}
 
 		var playForward = new TimelineMax()
 			.to(videoWrap, 0.001, {opacity:1, visibility:'visible'})
-			//.call(play);
 			.add(function(){
-				//$('.topper').on('scroll', videoProgress).load(videoProgress);
 
-				$('.topper').scroll(function(){
+				$('.topper').on('scroll', throttle(function (event) {
+					
 					// get video properties
 					var video = document.getElementById('explosion'),
 						videoDuration = video.duration;
@@ -491,12 +508,9 @@ $(document).ready(function() {
 
 					if(isNaN(scrollRatio)) scrollRatio = 0;
 					video.currentTime = scrollRatio*videoDuration;
-				});
 
-				// function videoProgress(){
-						
+				}, 33));
 
-				// }
 			});
 
 		// build scene
