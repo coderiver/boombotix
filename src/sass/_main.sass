@@ -2,7 +2,15 @@
 .out
 	position: relative
 	pointer-events: none
+	// min-height: 4000px
 	z-index: 2
+// video
+// 	position: fixed
+// 	top: 0
+// 	left: 0
+// 	width: 100%
+// 	height: 100vh
+// 	z-index: 99
 	
 // topper
 .topper
@@ -11,6 +19,7 @@
 	overflow-y: auto
 	background: #ccc 
 	pointer-events: auto
+	-webkit-overflow-scrolling: touch
 	.topper__in
 		height: 2000px
 		&.is-transformed
@@ -18,6 +27,8 @@
 .trigger
 	height: 20px
 	background: red
+.scrollmagic-pin-spacer
+	z-index: 4	
 .animation
 	position: absolute
 	top: 0
@@ -33,7 +44,7 @@
 	position: absolute
 	top: 0
 	height: 100vh 
-	right: 0
+	width: 100% 
 	left: 0
 	overflow: hidden
 	video

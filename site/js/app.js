@@ -432,7 +432,7 @@ $(document).ready(function() {
 	startScreen();
 
 
-	// detect native scroll events for start screen
+	//detect native scroll events for start screen
 	$('.topper').scroll(function(){
 		var block = $(this);
 		var windowHeight = $('.topper__in').height();
@@ -450,53 +450,96 @@ $(document).ready(function() {
 	});	
 
 
-	// scroll magic animations
+	//scroll magic animations
+	
+
 
 	$(function () { // wait for document ready
 		// init controller
 		var controller = new ScrollMagic.Controller({container: ".topper"});
 
+		var videoWrap = document.getElementById('video-explosion');
+
+		function play() {
+			
+			
+		}
+
 		var playForward = new TimelineMax()
-			.to(".animation", 0.001, {opacity:1, visibility:'visible'})
-			.to(".animation", 1, {backgroundColor: "red"});
+			.to(videoWrap, 0.001, {opacity:1, visibility:'visible'})
+			//.call(play);
+			.add(function(){
+				//$('.topper').on('scroll', videoProgress).load(videoProgress);
+
+				$('.topper').scroll(function(){
+					// get video properties
+					var video = document.getElementById('explosion'),
+						videoDuration = video.duration;
+
+						console.log(videoDuration);
+
+					// get wrapper properties
+					var wrap = $('.topper'),
+						scrollable = $('.topper__in').height() - wrap.height();
+
+						console.log(scrollable);
+
+					// do seeking
+					var scrollRatio = $('.topper').scrollTop()/scrollable;
+
+					console.log(scrollRatio);
+
+					if(isNaN(scrollRatio)) scrollRatio = 0;
+					video.currentTime = scrollRatio*videoDuration;
+				});
+
+				// function videoProgress(){
+						
+
+				// }
+			});
 
 		// build scene
 		var scene = new ScrollMagic.Scene({
-			offset: 0,
-			duration: $('.topper__in').height()
+			offset: 1
 		})
 			.addTo(controller)
 			.setTween(playForward)
-			.setPin(".animation");
+			.setPin("#video-explosion");
 	});
 
-	// explosion video play
-	function play() {
-		document.getElementById('explosion').play();
-	}
-
-	// explosion video appearance	
-	// var videoWrap = document.getElementById('video-explosion');
-
-	// var explosionInit = new TimelineLite()
-	// 	.to(videoWrap, 0, {opacity: 1, visibility:'visible'})
-	// 	.call(play)
-	// 	.add(function() {
-	// 		$('.topper').addClass('is-exploded');
-	// 	}, '+=9')
-
 	
 	
 
 
-	// fullpage init
+	//fullpage init
 
 	$('#fullpage').fullpage({
 		normalScrollElements: '.topper__in'
 	});
 
 
-
+// $(function() {
+//     $(window)
+//     .on('scroll', vidProgress);
+    
+//     function vidProgress() {
+//         // Get video properties
+//         var $v = document.getElementById('explosion'),
+//             duration = $v.duration;
+        
+//         // Get window properties
+//         var $w = $(window),
+//             scrollable = $(document).height() - $w.height();
+        
+//         // Do seeking
+//         var scrollRatio = $(document).scrollTop()/scrollable;
+//         if(isNaN(scrollRatio)) {scrollRatio = 0};
+//         var progress = scrollRatio*duration;
+//         console.log(progress);
+//         $v.currentTime = progress;
+//     };
+// });
 
 
 
