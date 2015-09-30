@@ -77,23 +77,30 @@ $(document).ready(function() {
 					var video = document.getElementById('explosion'),
 						videoDuration = video.duration;
 
-						console.log(videoDuration);
+						//console.log(videoDuration);
 
 					// get wrapper properties
 					var wrap = $('.topper'),
 						scrollable = $('.topper__in').height() - wrap.height();
 
-						console.log(scrollable);
+						//console.log(scrollable);
 
 					// do seeking
 					var scrollRatio = $('.topper').scrollTop()/scrollable;
 
+					scrollRatio = scrollRatio.toFixed(3);
+
 					console.log(scrollRatio);
 
-					if(isNaN(scrollRatio)) scrollRatio = 0;
+					if(isNaN(scrollRatio)) {
+						scrollRatio = 0
+					};
+
 					video.currentTime = scrollRatio*videoDuration;
 
-				}, 33));
+					
+
+				}, 10));
 
 			});
 
@@ -113,7 +120,7 @@ $(document).ready(function() {
 	//fullpage init
 
 	$('#fullpage').fullpage({
-		normalScrollElements: '.topper__in'
+		//normalScrollElements: '.topper__in'
 	});
 
 

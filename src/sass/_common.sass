@@ -1,24 +1,22 @@
 // fonts
-
-+font(DINCondensed-Light, 2F42E5_0_0)
-=dinl
-	font-family: 'DINCondensed-Light', sans-serif
-	-webkit-font-smoothing: antialiased
-	-moz-osx-font-smoothing: grayscale
-
-+font(DINCondensed-Regular, 2F42E5_1_0)
-=din
-	font-family: 'DINCondensed-Regular', sans-serif
-	-webkit-font-smoothing: antialiased
-	-moz-osx-font-smoothing: grayscale
-=font
+=mw
 	font-family: 'Merriweather'
 	-webkit-font-smoothing: antialiased
 	-moz-osx-font-smoothing: grayscale
-
+	
++font(DinCond-Regular, ufonts_com_dincondregularopentype)
+=din
+	font-family: 'DinCond-Regular', sans-serif
+	font-weight: normal
+	font-style: normal
++font(DinCond-Medium, ufonts_com_dincondmediumopentype)
+=din-m
+	font-family: 'DinCond-Medium', sans-serif
+	font-weight: normal
+	font-style: normal
 
 body
-	+font
+	+mw
 	font-size: 18px
 	line-height: 1.4
 	color: #f2f2f1
@@ -31,7 +29,7 @@ body
 	width: 265px
 	border-radius: 37px
 	border: 2px solid #b59171
-	+font
+	+mw
 	font-size: 23px
 	font-style: italic
 	letter-spacing: 4px
@@ -43,6 +41,18 @@ body
 	&:hover
 		background: #b59171
 
+.h2
+	+din
+	font-size: 100px
+	text-transform: uppercase
+	color: rgb(33, 34, 34)
+	line-height: 1
+.h3
+	+din-m
+	font-size: 100px
+	text-transform: uppercase
+	color: rgb(33, 34, 34)
+	line-height: 1
 
 
 
