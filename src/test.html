@@ -1,66 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
+
+<!doctype html>
+<html>
 <head>
-	<meta charset="UTF-8">
-	<title>Scroll untuk play video | Tutorial-Webdesign.com</title>
-	<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-	<script>
-	function scrollVideo() {
-	  var video = $('#video').get(0),
-	    videoLength = video.duration,
-	    scrollPosition = $(document).scrollTop();
-	  
-	  video.currentTime = (scrollPosition / ($(document).height() - $(window).height())) * videoLength;
-	}
-	$(window).scroll(function(e) {
-	  scrollVideo();
-	});
-	</script>
-
-	<style>
-		*{
-			padding: 0;margin: 0;
-		}
-		html {
-		  height:100%;
-		}
-		body {
-		  height: 4000px;
-		  -webkit-overflow-scrolling: touch;
-		}
-		video {
-		  position: fixed;
-		  left: 50%;
-		  top: 0;
-		  min-width: 100%;
-		  min-height: 100%;
-		  width: auto;
-		  height: auto;
-		  z-index: -100;
-		  background-size: cover;
-		  -moz-transform: translateX(-50%);
-		  transform: translateX(-50%);
-		}
-		h1 {
-		  position: fixed;
-		  top: 50%;
-		  left: 50%;
-		  width: 100%;
-		  -moz-transform: translate(-50%,-50%);
-		  transform: translate(-50%,-50%);
-		  z-index: 99;
-		  font-family: HelveticaNeue, Helvetica, sans-serif;
-		  font-size:8vmin;
-		  text-align:center;
-		  color: white;
-		}
-	</style>
-
+<title>Canvas Scroll</title>
+<script src="//code.jquery.com/jquery-1.10.1.min.js"></script>
+<style type="text/css">
+body, html { margin: 0; }
+</style>
 </head>
-<body>
-	
-<h1>Scroll to play video &#9658;</h1>
-<video id="video" src="video/boombotix_explosion.mp4"></video>
+<canvas id="background" width="1280" height="720"></canvas>
 
-</body>
+<script type="text/javascript">
+
+var totalImages = 666;
+var images = new Array();
+
+for(var i = 419; i < totalImages; i = i + 3) {
+	var filename = 'boombotix_final_22.09_00';
+	filename += i + '.jpg';
+	var img = new Image;
+	img.src = 'img/explosion/' + filename;
+	images.push(img);
+}
+
+var canv = document.getElementById('background');
+var context = canv.getContext('2d');
+$(canv)
+	.width($(window).width())
+	.height($(window).height());
+
+var currentLocation = 0;
+
+var maxLocation = images.length - 1;
+
+
+window.addEventListener('mousewheel', function(e) {
+	e.preventDefault();
+	var delta = Math.max(-1, Math.min(1, e.wheelDelta));
+	if(delta == -1) currentLocation += 1;
+	if(delta == 1) currentLocation -= 1;
+	if(currentLocation < 0) currentLocation = 0;
+	if(currentLocation > maxLocation) currentLocation = maxLocation;
+	setImage(currentLocation);
+});
+
+function setImage(newLocation) {
+	context.drawImage(images[newLocation], 0, 0, 1280, 720);
+}
+</script>
 </html>
