@@ -9,51 +9,70 @@ body, html { margin: 0; }
 </style>
 </head>
 <canvas id="background" width="1280" height="720"></canvas>
-
+<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet sint itaque fugit maxime autem reprehenderit enim optio nostrum quaerat labore, culpa iste tempore, nihil iusto quae, expedita obcaecati laboriosam error.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet sint itaque fugit maxime autem reprehenderit enim optio nostrum quaerat labore, culpa iste tempore, nihil iusto quae, expedita obcaecati laboriosam error.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet sint itaque fugit maxime autem reprehenderit enim optio nostrum quaerat labore, culpa iste tempore, nihil iusto quae, expedita obcaecati laboriosam error.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet sint itaque fugit maxime autem reprehenderit enim optio nostrum quaerat labore, culpa iste tempore, nihil iusto quae, expedita obcaecati laboriosam error.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet sint itaque fugit maxime autem reprehenderit enim optio nostrum quaerat labore, culpa iste tempore, nihil iusto quae, expedita obcaecati laboriosam error.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet sint itaque fugit maxime autem reprehenderit enim optio nostrum quaerat labore, culpa iste tempore, nihil iusto quae, expedita obcaecati laboriosam error.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet sint itaque fugit maxime autem reprehenderit enim optio nostrum quaerat labore, culpa iste tempore, nihil iusto quae, expedita obcaecati laboriosam error.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet sint itaque fugit maxime autem reprehenderit enim optio nostrum quaerat labore, culpa iste tempore, nihil iusto quae, expedita obcaecati laboriosam error.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet sint itaque fugit maxime autem reprehenderit enim optio nostrum quaerat labore, culpa iste tempore, nihil iusto quae, expedita obcaecati laboriosam error.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet sint itaque fugit maxime autem reprehenderit enim optio nostrum quaerat labore, culpa iste tempore, nihil iusto quae, expedita obcaecati laboriosam error.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet sint itaque fugit maxime autem reprehenderit enim optio nostrum quaerat labore, culpa iste tempore, nihil iusto quae, expedita obcaecati laboriosam error.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet sint itaque fugit maxime autem reprehenderit enim optio nostrum quaerat labore, culpa iste tempore, nihil iusto quae, expedita obcaecati laboriosam error.</div>
 <script type="text/javascript">
+$(document).ready(function() {
+	var totalImages = 666;
+	var images = new Array();
 
-var totalImages = 666;
-var images = new Array();
+	for(var i = 419; i < totalImages; i = i + 3) {
+		var filename = 'boombotix_final_22.09_00';
+		filename += i + '.jpg';
+		var img = new Image;
+		img.src = 'img/explosion/' + filename;
+		images.push(img);
+	}
 
-for(var i = 419; i < totalImages; i = i + 3) {
-	var filename = 'boombotix_final_22.09_00';
-	filename += i + '.jpg';
-	var img = new Image;
-	img.src = 'img/explosion/' + filename;
-	images.push(img);
-}
+	// console.log(images[0]);
+	// console.log(images[1]);
+	// console.log(images[2]);
+	// console.log(images[3]);
+	// console.log(images[4]);
 
-var canv = document.getElementById('background');
-var context = canv.getContext('2d');
-$(canv)
-	.width($(window).width())
-	.height($(window).height());
+	var canv = document.getElementById('background');
+	var context = canv.getContext('2d');
+	$(canv)
+		.width($(window).width())
+		.height($(window).height());
 
-var currentLocation = 0;
+	var currentLocation = 0;
 
-var maxLocation = images.length - 1;
-
-
-
-function setImage(newLocation) {
-	context.drawImage(images[newLocation], 0, 0, 1280, 720);
-}
-
-setTimeout(function(){
-	setImage(currentLocation);
-}, 10);
+	var maxLocation = images.length - 1;
 
 
-window.addEventListener('mousewheel', function(e) {
-	e.preventDefault();
-	var delta = Math.max(-1, Math.min(1, e.wheelDelta));
-	if(delta == -1) currentLocation += 1;
-	if(delta == 1) currentLocation -= 1;
-	if(currentLocation < 0) currentLocation = 0;
-	if(currentLocation > maxLocation) currentLocation = maxLocation;
-	setImage(currentLocation);
+	wescrolledpast = 0;
+	window.addEventListener('mousewheel', function(e) {
+
+		// ifelse
+		if(!wescrolledpast){
+			e.preventDefault();
+		}
+		if($(document).scrollTop()<2 && wescrolledpast==1 ){
+			wescrolledpast = 0;
+			console.log('at top');
+			currentLocation = maxLocation-1;
+		}
+
+		// actual animation
+		if(currentLocation<maxLocation){wescrolledpast = 0}
+		else{wescrolledpast = 1;}
+
+		if(!wescrolledpast){
+			var delta = Math.max(-1, Math.min(1, e.wheelDelta));
+			if(delta == -1) currentLocation += 1;
+			if(delta == 1) currentLocation -= 1;
+			if(currentLocation < 0) currentLocation = 0;
+			if(currentLocation > maxLocation) currentLocation = maxLocation;
+			setImage(currentLocation);
+		}
+
+	});
+
+
+	function setImage(newLocation) {
+		context.drawImage(images[newLocation], 0, 0, 1280, 720);
+	}
 });
-
 
 </script>
 </html>
