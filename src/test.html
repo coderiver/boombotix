@@ -23,12 +23,6 @@ for(var i = 419; i < totalImages; i = i + 3) {
 	images.push(img);
 }
 
-console.log(images[0]);
-console.log(images[1]);
-console.log(images[2]);
-console.log(images[3]);
-console.log(images[4]);
-
 var canv = document.getElementById('background');
 var context = canv.getContext('2d');
 $(canv)
@@ -38,6 +32,16 @@ $(canv)
 var currentLocation = 0;
 
 var maxLocation = images.length - 1;
+
+
+
+function setImage(newLocation) {
+	context.drawImage(images[newLocation], 0, 0, 1280, 720);
+}
+
+setTimeout(function(){
+	setImage(currentLocation);
+}, 10);
 
 
 window.addEventListener('mousewheel', function(e) {
@@ -50,8 +54,6 @@ window.addEventListener('mousewheel', function(e) {
 	setImage(currentLocation);
 });
 
-function setImage(newLocation) {
-	context.drawImage(images[newLocation], 0, 0, 1280, 720);
-}
+
 </script>
 </html>

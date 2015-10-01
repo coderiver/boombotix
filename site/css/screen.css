@@ -126,9 +126,7 @@ body { font-family: "Merriweather"; -webkit-font-smoothing: antialiased; -moz-os
 
 .out { position: relative; pointer-events: none; z-index: 2; }
 
-.topper { position: relative; height: 100vh; overflow-y: auto; background: #ccc; pointer-events: auto; -webkit-overflow-scrolling: touch; }
-.topper .topper__in { height: 2000px; }
-.topper .topper__in.is-transformed { pointer-events: none; }
+.topper { position: relative; height: 100vh; overflow-y: auto; background: #ccc; pointer-events: auto; }
 
 .scrollmagic-pin-spacer { z-index: 4; }
 
@@ -136,7 +134,9 @@ body { font-family: "Merriweather"; -webkit-font-smoothing: antialiased; -moz-os
 .video video { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; -webkit-transform: translateX(-50%) translateY(-50%); -ms-transform: translateX(-50%) translateY(-50%); transform: translateX(-50%) translateY(-50%); }
 .video.video_intro { z-index: 1; }
 .video.video_main { visibility: hidden; opacity: 0; z-index: 2; }
-.video.video_explosion { visibility: hidden; opacity: 0; background: url(../img/boombotix_final.jpg); background-repeat: no-repeat; background-size: cover; background-position: 50% 50%; z-index: 3; }
+.video.video_explosion { visibility: hidden; opacity: 0; z-index: 5; }
+
+#explosion { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; -webkit-transform: translateX(-50%) translateY(-50%); -ms-transform: translateX(-50%) translateY(-50%); transform: translateX(-50%) translateY(-50%); }
 
 .section { min-height: 500px; }
 

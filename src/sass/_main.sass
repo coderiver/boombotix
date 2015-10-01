@@ -11,11 +11,6 @@
 	overflow-y: auto
 	background: #ccc 
 	pointer-events: auto
-	-webkit-overflow-scrolling: touch
-	.topper__in
-		height: 2000px
-		&.is-transformed
-			pointer-events: none
 .scrollmagic-pin-spacer
 	z-index: 4	
 
@@ -44,9 +39,16 @@
 	&.video_explosion
 		visibility: hidden
 		opacity: 0
-		background: url(../img/boombotix_final.jpg)
-		+cover 
-		z-index: 3	
+		z-index: 5
+#explosion
+	position: absolute
+	top: 50%
+	left: 50%
+	min-width: 100%
+	min-height: 100%
+	width: auto
+	height: auto
+	transform: translateX(-50%) translateY(-50%)	
 
 .section
 	min-height: 500px	
