@@ -116,17 +116,52 @@
 	width: auto
 	height: auto
 	transform: translateX(-50%) translateY(-50%)	
-
-.section
-	min-height: 500px	
 	
 .sound
+	position: relative
 	height: 100vh
-	background: url(../img/bg-panel-2.png) no-repeat
-	+cover  	
-			
+	overflow: hidden 
+	margin-bottom: -300px 
+	pointer-events: auto
+	z-index: 3 	
+.bg-white
+	position: relative
+	top: 0
+	left: 0
+	background: #f6f6f5
+	width: 110%
+	height: 100%
+	transform: rotate(-10deg)
+	overflow: hidden
+	transform-origin: 0 100%
+	z-index: 2
+.bg-gray
+	position: absolute
+	bottom: 0
+	left: 0
+	background: #f1f0f0
+	transform: rotate(-20deg)
+	width: 60%
+	height: 240%
+	transform-origin: 100% 100%   	
+.bg-yellow
+	position: absolute
+	top: 0
+	bottom: 0
+	right: 0
+	left: 0
+	background: #FFF 	
+
+.portability
+	position: absolute
+	height: 1300px
+	width: 100% 
+	background: blue 
+	pointer-events: auto
+	z-index: 2
+
 // footer
-.fp-auto-height.fp-section.push
+.push
 	height: 84vh!important
 	pointer-events: none
 .footer

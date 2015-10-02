@@ -126,8 +126,31 @@ $(document).ready(function() {
 
 	startScreen();
 
-	
+	function sound(){
 
+		var sound = document.getElementById('sound');
+
+		height = $('.sound').height()/2;
+
+		// init controller
+		var controllerSound = new ScrollMagic.Controller();
+		
+		var bgWhite = $('.bg-white');
+		var bgGray = $('.bg-gray');
+
+		var playSound = new TimelineMax()
+			.to(bgGray, 2, {transform:'rotate(-40deg)'})
+			.to(bgWhite, 2, {transform:'rotate(-5deg)'}, '-=1');
+
+		// build scene
+		var sound = new ScrollMagic.Scene({
+			offset: 0,
+			triggerElement: sound
+		})
+			.addTo(controllerSound)
+			.setTween(playSound);
+	}
+	sound();
 
 
 
