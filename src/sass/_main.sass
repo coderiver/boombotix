@@ -121,7 +121,7 @@
 	position: relative
 	height: 100vh
 	overflow: hidden 
-	margin-bottom: -300px 
+	margin-bottom: -350px 
 	pointer-events: auto
 	z-index: 3 	
 .bg-white
@@ -129,9 +129,9 @@
 	top: 0
 	left: 0
 	background: #f6f6f5
-	width: 110%
+	width: 150%
 	height: 100%
-	transform: rotate(-10deg)
+	transform: rotate(-12deg)
 	overflow: hidden
 	transform-origin: 0 100%
 	z-index: 2
@@ -143,7 +143,9 @@
 	transform: rotate(-20deg)
 	width: 60%
 	height: 240%
-	transform-origin: 100% 100%   	
+	transform-origin: 100% 100%
+	+r(1280)
+		width: 50%   	
 .bg-yellow
 	position: absolute
 	top: 0
@@ -153,10 +155,10 @@
 	background: #FFF 	
 
 .portability
-	position: absolute
+	position: relative
 	height: 1300px
 	width: 100% 
-	background: blue 
+	+gh(#eedec6, #cfbda4)
 	pointer-events: auto
 	z-index: 2
 

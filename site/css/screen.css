@@ -75,15 +75,16 @@ body { font-family: "Merriweather"; -webkit-font-smoothing: antialiased; -moz-os
 
 #explosion { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; -webkit-transform: translateX(-50%) translateY(-50%); -ms-transform: translateX(-50%) translateY(-50%); transform: translateX(-50%) translateY(-50%); }
 
-.sound { position: relative; height: 100vh; overflow: hidden; margin-bottom: -300px; pointer-events: auto; z-index: 3; }
+.sound { position: relative; height: 100vh; overflow: hidden; margin-bottom: -350px; pointer-events: auto; z-index: 3; }
 
-.bg-white { position: relative; top: 0; left: 0; background: #f6f6f5; width: 110%; height: 100%; -webkit-transform: rotate(-10deg); -ms-transform: rotate(-10deg); transform: rotate(-10deg); overflow: hidden; -webkit-transform-origin: 0 100%; -ms-transform-origin: 0 100%; transform-origin: 0 100%; z-index: 2; }
+.bg-white { position: relative; top: 0; left: 0; background: #f6f6f5; width: 150%; height: 100%; -webkit-transform: rotate(-12deg); -ms-transform: rotate(-12deg); transform: rotate(-12deg); overflow: hidden; -webkit-transform-origin: 0 100%; -ms-transform-origin: 0 100%; transform-origin: 0 100%; z-index: 2; }
 
 .bg-gray { position: absolute; bottom: 0; left: 0; background: #f1f0f0; -webkit-transform: rotate(-20deg); -ms-transform: rotate(-20deg); transform: rotate(-20deg); width: 60%; height: 240%; -webkit-transform-origin: 100% 100%; -ms-transform-origin: 100% 100%; transform-origin: 100% 100%; }
+@media only screen and (max-width: 1280px) { .bg-gray { width: 50%; } }
 
 .bg-yellow { position: absolute; top: 0; bottom: 0; right: 0; left: 0; background: #FFF; }
 
-.portability { position: absolute; height: 1300px; width: 100%; background: blue; pointer-events: auto; z-index: 2; }
+.portability { position: relative; height: 1300px; width: 100%; background-image: linear-gradient(to right, #eedec6, #cfbda4); pointer-events: auto; z-index: 2; }
 
 .push { height: 84vh !important; pointer-events: none; }
 

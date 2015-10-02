@@ -124,14 +124,15 @@ $(document).ready(function() {
 
 	};
 
-	startScreen();
+	//startScreen();
 
 	function sound(){
 
 		var sound = document.getElementById('sound');
 
-		height = $('.sound').height()/2;
+		height = $('.sound').height();
 
+		height = height*0.75;
 		// init controller
 		var controllerSound = new ScrollMagic.Controller();
 		
@@ -145,7 +146,8 @@ $(document).ready(function() {
 		// build scene
 		var sound = new ScrollMagic.Scene({
 			offset: 0,
-			triggerElement: sound
+			triggerElement: sound,
+			duration: height
 		})
 			.addTo(controllerSound)
 			.setTween(playSound);
