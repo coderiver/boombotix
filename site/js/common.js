@@ -1,22 +1,28 @@
 $(document).ready(function() {
+
+	$('html, body').animate({
+		scrollTop: 0
+	}, 0);
 	
 	function startScreen() {
 		
-		var video1 = document.getElementById('video-intro'),
-			video2 = document.getElementById('video-main'),
+		var videoIntro = document.getElementById('video-intro'),
+			videoPulse = document.getElementById('video-main'),
 			titleWhite = $('.topper__white .h2'),
 			titleWhiteBg = $('.topper__white .bg-text'),
 			scroll = $('.scroll'),
-			topper = $('#topper');
+			topper = $('#topper'),
+			blackLogos = $('.topper__logos'),
+			blackText = $('.topper__text');
 
 
 		var tl = new TimelineMax(); 	
 
 		tl.delay(3)
-		  .to(video1, 1, {opacity:0})
+		  .to(videoIntro, 1, {opacity:0})
 		  .to(titleWhiteBg, 0.9, {opacity:1}, '-=1')
 		  .to(titleWhite, 0.9, {opacity:1}, '-=0.2')
-		  .to( video2, 1, {opacity:1}, '-=2')
+		  .to(videoPulse, 1, {opacity:1}, '-=2')
 		  .to(scroll, 0.6, {opacity:1, transform: 'translateY(0)'});
 
 		 //scroll magic animations
@@ -45,15 +51,12 @@ $(document).ready(function() {
 		 			}
 		 			if($(document).scrollTop()<2 && wescrolledpast==1 ){
 		 				wescrolledpast = 0;
-		 				console.log('at top');
 		 				currentLocation = maxLocation-1;
 		 			}
 		 			// actual animation
 		 			if(currentLocation<maxLocation){wescrolledpast = 0}
 		 			else{wescrolledpast = 1;}
 		 			if(!wescrolledpast){
-
-		 				
 
 		 				var delta = Math.max(-1, Math.min(1, e.wheelDelta));
 		 				if(delta == -1) currentLocation += 1;
@@ -76,16 +79,22 @@ $(document).ready(function() {
 		 					var showTopper = new TimelineMax()
 		 						.to(scroll, 0.6, {opacity:1, transform: 'translateY(0)'})
 		 						.to(titleWhiteBg, 0.9, {opacity:1}, '-=0.5')
-								.to(titleWhite, 0.9, {opacity:1}, '-=0.5');
+								.to(titleWhite, 1, {opacity:1}, '-=0.5');
 							
 		 				};
 
 		 				// show content from black section
 		 				if (currentLocation > (images.length - 10) && delta == -1) {
-		 					var showTopper = new TimelineMax()
-		 						.to(scroll, 0.6, {opacity:1, transform: 'translateY(0)'})
-		 						.to(titleWhiteBg, 0.9, {opacity:1})
-								.to(titleWhite, 0.9, {opacity:1});
+		 					var showBlack = new TimelineMax()
+		 						.to(blackLogos, 0.9, {opacity:1}, '+=1')
+								.to(blackText, 1, {opacity:1});
+							
+		 				};
+		 				if (currentLocation < (images.length - 10) && delta == 1) {
+		 					var showBlack = new TimelineMax()
+		 						.to(blackText, 1, {opacity:0})
+		 						.to(blackLogos, 0.9, {opacity:0});
+								
 							
 		 				};
 		 			}
