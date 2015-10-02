@@ -11,8 +11,48 @@
 	overflow-y: auto
 	background: #ccc 
 	pointer-events: auto
+	.topper__white
+		position: absolute
+		top: 0
+		bottom: 0
+		right: 0
+		left: 0
+		text-align: center
+		padding-top: 200px 
+		z-index: 5
+		.bg-text
+			position: absolute
+			top: 120px
+			left: 0
+			right: 0
+			overflow: hidden
+			font-size: 260px
+			line-height: 1
+			+din-m
+			text-transform: uppercase
+			white-space: nowrap
+			color: rgba(#5d4229, 0.06) 
+			opacity: 0 
+			z-index: 1
+		.h2
+			position: relative
+			opacity: 0 	
+			z-index: 2
 .scrollmagic-pin-spacer
 	z-index: 4	
+.scroll
+	position: absolute
+	bottom: 40px
+	left: 0
+	right: 0
+	text-align: center
+	font-size: 21px
+	color: #7c6d53
+	+mw
+	font-style: italic
+	transform: translateY(10px)
+	opacity: 0 
+	z-index: 5
 
 .video
 	position: absolute
@@ -33,11 +73,9 @@
 	&.video_intro
 		z-index: 1	
 	&.video_main
-		visibility: hidden
 		opacity: 0	
 		z-index: 2
 	&.video_explosion
-		visibility: hidden
 		opacity: 0
 		z-index: 5
 #explosion
