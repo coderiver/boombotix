@@ -126,7 +126,7 @@ $(document).ready(function() {
 
 	};
 
-	//startScreen();
+	startScreen();
 
 	// sound section
 
@@ -147,7 +147,7 @@ $(document).ready(function() {
 		var controllerSound = new ScrollMagic.Controller();
 
 		var playSound = new TimelineMax()
-			.to(bgGray, 2, {transform:'rotate(-40deg)'})
+			.to(bgGray, 2, {transform:'rotate(-35deg)'})
 			.to(bgWhite, 2, {transform:'rotate(-5deg)'}, '-=1');
 
 		var showSound = new TimelineMax()
@@ -188,6 +188,29 @@ $(document).ready(function() {
 	}
 	sound();
 
+	// portability
+	function portability(){
+		var portabilityId = document.getElementById('portability'),
+			portability = $('.portability'),
+			titleBg = portability.find('.title__bg'),
+			title = portability.find('.title .h2'),
+			height = portability.height();
+
+		var controllerPortability = new ScrollMagic.Controller();
+		
+		var showContent = new TimelineMax()
+			.to(titleBg, 0.8, {opacity:1})
+			.to(title, 0.8, {opacity:1}, '-=0.2');
+
+		var portabilityContent = new ScrollMagic.Scene({
+			offset: height/4,
+			triggerElement: portabilityId
+		})
+			.addTo(controllerPortability)
+			.setTween(showContent);
+
+	}
+	portability();
 
 
 

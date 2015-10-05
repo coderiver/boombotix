@@ -124,16 +124,16 @@
 	background: #f6f6f5
 	width: 150%
 	height: 100%
-	transform: rotate(-30deg)
+	transform: rotate(-20deg)
 	overflow: hidden
 	transform-origin: 0 100%
 	z-index: 2
 .bg-gray
 	position: absolute
 	bottom: 0
-	left: -10%
+	left: -20%
 	background: #f1f0f0
-	transform: rotate(-20deg)
+	transform: rotate(0deg)
 	width: 60%
 	height: 240%
 	transform-origin: 100% 100%
@@ -144,35 +144,48 @@
 .sound
 	position: relative
 	height: 100vh
-	margin-bottom: -124px
-	overflow: hidden 
+	margin-bottom: -200px
 	pointer-events: auto
-	
 	z-index: 3 	
+	.sound__bg
+		position: absolute
+		top: 0
+		bottom: 0
+		right: 0
+		left: 0
+		overflow: hidden
 	.sound__content
 		position: absolute
 		top: 0
 		left: 0
 		right: 0
 		bottom: 0
-		padding-top: 12%
+		padding-top: 150px
 		z-index: 3
 		.title
 			margin-bottom: 80px
 			padding-left: 17%
 	.sound__in
 		padding-left: 24%	
+	.sound__img-wrap
+		position: absolute
+		top: 0
+		right: 0
+		left: 0 
+		height: 1500px
+		overflow: hidden
+		pointer-events: none 	
 	.sound__img
 		position: absolute
-		bottom: 0
-		right: -5%
-		height: 72%
+		top: 25%
+		right: -3%
+		height: 100vh
 		font-size: 0
 		z-index: 4
 		&:before
 			content: ""
 			position: absolute
-			top: 50%
+			top: 25%
 			left: 50%
 			transform: translate(-50%, -50%) scale(0.01)
 			width: 1500px
@@ -183,7 +196,7 @@
 		&:after
 			content: ""
 			position: absolute
-			top: 50%
+			top: 25%
 			left: 50%
 			transform: translate(-50%, -50%) scale(0.01)
 			width: 1200px
@@ -202,7 +215,7 @@
 				opacity: 0			
 		img
 			position: relative
-			height: 100%
+			height: 60%
 			width: auto 
 			z-index: 3
 .buy-block
@@ -237,22 +250,82 @@
 // portability
 .portability
 	position: relative
-	height: calc(100vh + 124px)
+	height: calc(100vh + 200px)
 	width: 100%
 	pointer-events: auto
 	z-index: 2
 	.portability__in
 		height: 100% 
 		+gh(#eedec6, #cfbda4)
+	.portability__content
+		position: absolute
+		top: 350px
+		left: 45%
+		right: 0
+		bottom: 0	
+		padding-left: 15%
+		z-index: 1
+		.title
+			margin-bottom: 40px
+			.h2
+				color: #39342e
+			.title__bg
+				left: -20%
+				color: rgba(#5d4229, 0.06)
+		.portability__text
+			max-width: 400px
+			margin-bottom: 60px
+			+mw
+			font-size: 18px
+			color: #625343
+			line-height: 1.6  
 	.portability__model
 		position: absolute
-		top: 0
+		top: 100px
 		bottom: 0
 		left: 20%
 		font-size: 0
+		z-index: 2
 		img
 			height: 100%
-			width: auto 
+			width: auto
+.info
+	.info__item
+		+clr
+		margin-bottom: 40px
+	.info__img
+		position: relative
+		float: left
+		width: 87px
+		height: 87px
+		text-align: center
+		margin-right: 35px
+		font-size: 35px
+		border-radius: 50%
+		background: #e3d2bb
+		box-shadow: -1px 3px 7px rgba(197, 179, 158, 0.35)
+		color: #686155
+		.icon-feather
+			position: absolute
+			top: 50%
+			left: 50%
+			transform: translate(-50%, -50%)
+			font-size: 40px	
+		.icon-ruler
+			position: absolute
+			top: 7%
+			left: 55%
+			transform: scale(1, -1)	translate(-50%, -50%)
+	.info__value
+		+din
+		color: #212222
+		font-size: 50px
+		text-transform: uppercase
+	.info__name
+		+mw
+		font-size: 16px
+		letter-spacing: 2px
+		color: #797a7a  			 
 
 // footer
 .push
