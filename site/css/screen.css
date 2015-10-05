@@ -39,6 +39,8 @@ html { box-sizing: border-box; }
 
 .icon-skrill:before { content: ""; }
 
+.icon-basket:before { content: ""; }
+
 @font-face { font-family: DinCond-Regular; src: url("fonts/ufonts_com_dincondregularopentype.eot"); src: url("fonts/ufonts_com_dincondregularopentype.eot?#iefix") format("embedded-opentype"), url("fonts/ufonts_com_dincondregularopentype.woff2") format("woff2"), url("fonts/ufonts_com_dincondregularopentype.woff") format("woff"), url("fonts/ufonts_com_dincondregularopentype.ttf") format("truetype"); font-weight: normal; font-style: normal; }
 @font-face { font-family: DinCond-Medium; src: url("fonts/ufonts_com_dincondmediumopentype.eot"); src: url("fonts/ufonts_com_dincondmediumopentype.eot?#iefix") format("embedded-opentype"), url("fonts/ufonts_com_dincondmediumopentype.woff2") format("woff2"), url("fonts/ufonts_com_dincondmediumopentype.woff") format("woff"), url("fonts/ufonts_com_dincondmediumopentype.ttf") format("truetype"); font-weight: normal; font-style: normal; }
 body { font-family: "Merriweather"; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-size: 18px; line-height: 1.4; color: #f2f2f1; -webkit-overflow-scrolling: touch; }
@@ -46,10 +48,18 @@ body { font-family: "Merriweather"; -webkit-font-smoothing: antialiased; -moz-os
 .btn { display: inline-block; height: 73px; width: 265px; border-radius: 37px; border: 2px solid #b59171; font-family: "Merriweather"; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-size: 23px; font-style: italic; letter-spacing: 4px; line-height: 65px; text-transform: uppercase; background: transparent; color: #f2f2f1; transition: background 300ms; }
 .btn:hover { background: #b59171; }
 
+.buy-btn { position: relative; height: 73px; width: 265px; padding-right: 79px; text-align: center; border-radius: 35px; background: #eeece8; box-shadow: -1px 2.8px 7px rgba(170, 170, 170, 0.32); font-size: 22px; letter-spacing: 2px; font-family: "Merriweather"; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-style: italic; color: #797a7a; transition: background 300ms; opacity: 0; -webkit-transform: translateY(30px); -ms-transform: translateY(30px); transform: translateY(30px); }
+.buy-btn:hover { background: #ECE6D9; }
+.buy-btn .buy-btn__right { position: absolute; top: 0; right: 0; bottom: 0; width: 95px; padding-top: 22px; background: url(../img/buy-btn-bg.png); background-repeat: no-repeat; background-size: cover; background-position: 50% 50%; font-size: 24px; color: #fff; }
+
 .h2 { font-family: "DinCond-Regular", sans-serif; font-weight: normal; font-style: normal; font-size: 100px; text-transform: uppercase; color: #212222; line-height: 1; }
 .h2.h2_yellow { color: #7c6d53; }
 
 .h3 { font-family: "DinCond-Medium", sans-serif; font-weight: normal; font-style: normal; font-size: 100px; text-transform: uppercase; color: #212222; line-height: 1; }
+
+.title { position: relative; }
+.title .h2 { position: relative; line-height: 1; z-index: 2; opacity: 0; }
+.title .title__bg { position: absolute; top: -85px; left: 0; right: 0; overflow: hidden; font-size: 260px; line-height: 1; font-family: "DinCond-Medium", sans-serif; font-weight: normal; font-style: normal; text-transform: uppercase; white-space: nowrap; color: rgba(196, 170, 141, 0.06); opacity: 0; z-index: 1; }
 
 .out { position: relative; pointer-events: none; z-index: 2; }
 
@@ -75,16 +85,33 @@ body { font-family: "Merriweather"; -webkit-font-smoothing: antialiased; -moz-os
 
 #explosion { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; -webkit-transform: translateX(-50%) translateY(-50%); -ms-transform: translateX(-50%) translateY(-50%); transform: translateX(-50%) translateY(-50%); }
 
-.sound { position: relative; height: 100vh; overflow: hidden; margin-bottom: -350px; pointer-events: auto; z-index: 3; }
+.bg-white { position: relative; top: 0; left: 0; background: #f6f6f5; width: 150%; height: 100%; -webkit-transform: rotate(-30deg); -ms-transform: rotate(-30deg); transform: rotate(-30deg); overflow: hidden; -webkit-transform-origin: 0 100%; -ms-transform-origin: 0 100%; transform-origin: 0 100%; z-index: 2; }
 
-.bg-white { position: relative; top: 0; left: 0; background: #f6f6f5; width: 150%; height: 100%; -webkit-transform: rotate(-12deg); -ms-transform: rotate(-12deg); transform: rotate(-12deg); overflow: hidden; -webkit-transform-origin: 0 100%; -ms-transform-origin: 0 100%; transform-origin: 0 100%; z-index: 2; }
-
-.bg-gray { position: absolute; bottom: 0; left: 0; background: #f1f0f0; -webkit-transform: rotate(-20deg); -ms-transform: rotate(-20deg); transform: rotate(-20deg); width: 60%; height: 240%; -webkit-transform-origin: 100% 100%; -ms-transform-origin: 100% 100%; transform-origin: 100% 100%; }
+.bg-gray { position: absolute; bottom: 0; left: -10%; background: #f1f0f0; -webkit-transform: rotate(-20deg); -ms-transform: rotate(-20deg); transform: rotate(-20deg); width: 60%; height: 240%; -webkit-transform-origin: 100% 100%; -ms-transform-origin: 100% 100%; transform-origin: 100% 100%; }
 @media only screen and (max-width: 1280px) { .bg-gray { width: 50%; } }
 
-.bg-yellow { position: absolute; top: 0; bottom: 0; right: 0; left: 0; background: #FFF; }
+.sound { position: relative; height: 100vh; margin-bottom: -124px; overflow: hidden; pointer-events: auto; z-index: 3; }
+.sound .sound__content { position: absolute; top: 0; left: 0; right: 0; bottom: 0; padding-top: 12%; z-index: 3; }
+.sound .sound__content .title { margin-bottom: 80px; padding-left: 17%; }
+.sound .sound__in { padding-left: 24%; }
+.sound .sound__img { position: absolute; bottom: 0; right: -5%; height: 72%; font-size: 0; z-index: 4; }
+.sound .sound__img:before { content: ""; position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%) scale(0.01); -ms-transform: translate(-50%, -50%) scale(0.01); transform: translate(-50%, -50%) scale(0.01); width: 1500px; height: 1500px; border-radius: 50%; background: #eeece8; z-index: 1; }
+.sound .sound__img:after { content: ""; position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%) scale(0.01); -ms-transform: translate(-50%, -50%) scale(0.01); transform: translate(-50%, -50%) scale(0.01); width: 1200px; height: 1200px; border-radius: 50%; background: #ece4d4; z-index: 2; }
+.sound .sound__img.is-ripple:before { transition: all 3s; -webkit-transform: translate(-50%, -50%) scale(1); -ms-transform: translate(-50%, -50%) scale(1); transform: translate(-50%, -50%) scale(1); opacity: 0; }
+.sound .sound__img.is-ripple:after { transition: all 3s 400ms; -webkit-transform: translate(-50%, -50%) scale(1); -ms-transform: translate(-50%, -50%) scale(1); transform: translate(-50%, -50%) scale(1); opacity: 0; }
+.sound .sound__img img { position: relative; height: 100%; width: auto; z-index: 3; }
 
-.portability { position: relative; height: 1300px; width: 100%; background-image: linear-gradient(to right, #eedec6, #cfbda4); pointer-events: auto; z-index: 2; }
+.buy-block { display: inline-block; text-align: center; }
+
+.detail { position: relative; padding-bottom: 40px; margin-bottom: 60px; opacity: 0; -webkit-transform: translateY(30px); -ms-transform: translateY(30px); transform: translateY(30px); }
+.detail:after { content: ""; position: absolute; bottom: 0; left: 50%; width: 72px; height: 3px; margin-left: -36px; background: #e4c4a4; }
+.detail .detail__value { font-family: "DinCond-Regular", sans-serif; font-weight: normal; font-style: normal; font-size: 70px; color: #212222; }
+.detail .detail__name { font-family: "Merriweather"; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-size: 21px; font-style: italic; letter-spacing: 2px; color: #797a7a; }
+
+.portability { position: relative; height: calc(100vh + 124px); width: 100%; pointer-events: auto; z-index: 2; }
+.portability .portability__in { height: 100%; background-image: linear-gradient(to right, #eedec6, #cfbda4); }
+.portability .portability__model { position: absolute; top: 0; bottom: 0; left: 20%; font-size: 0; }
+.portability .portability__model img { height: 100%; width: auto; }
 
 .push { height: 84vh !important; pointer-events: none; }
 

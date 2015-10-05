@@ -40,6 +40,36 @@ body
 	+tr(background 300ms)
 	&:hover
 		background: #b59171
+.buy-btn
+	position: relative
+	height: 73px
+	width: 265px 
+	padding-right: 79px
+	text-align: center
+	border-radius: 35px
+	background: #eeece8 
+	box-shadow: -1px 2.8px 7px rgba(170, 170, 170, 0.32)
+	font-size: 22px
+	letter-spacing: 2px 
+	+mw
+	font-style: italic
+	color: #797a7a
+	transition: background 300ms
+	opacity: 0
+	transform: translateY(30px)
+	&:hover
+		background: #ECE6D9 
+	.buy-btn__right
+		position: absolute
+		top: 0
+		right: 0
+		bottom: 0
+		width: 95px 
+		padding-top: 22px
+		background: url(../img/buy-btn-bg.png) 
+		+cover 
+		font-size: 24px
+		color: #fff
 
 .h2
 	+din
@@ -56,7 +86,27 @@ body
 	color: rgb(33, 34, 34)
 	line-height: 1
 
-
+.title
+	position: relative
+	.h2
+		position: relative
+		line-height: 1 
+		z-index: 2
+		opacity: 0
+	.title__bg
+		position: absolute
+		top: -85px
+		left: 0
+		right: 0
+		overflow: hidden
+		font-size: 260px
+		line-height: 1
+		+din-m
+		text-transform: uppercase
+		white-space: nowrap
+		color: rgba(#c4aa8d, 0.06)
+		opacity: 0 
+		z-index: 1
 
 
 

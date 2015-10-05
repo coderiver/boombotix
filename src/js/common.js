@@ -4,6 +4,8 @@ $(document).ready(function() {
 		scrollTop: 0
 	}, 0);
 	
+	// start section
+
 	function startScreen() {
 		
 		var videoIntro = document.getElementById('video-intro'),
@@ -27,7 +29,7 @@ $(document).ready(function() {
 
 		 //scroll magic animations
 
-		 function explosion(){
+		function explosion(){
 		 	var totalImages = 666;
 		 	var images = new Array();
 		 		for(var i = 419; i < totalImages; i = i + 3) {
@@ -126,31 +128,63 @@ $(document).ready(function() {
 
 	//startScreen();
 
+	// sound section
+
 	function sound(){
 
-		var sound = document.getElementById('sound');
+		var soundWrap = document.getElementById('.sound'),
+			bgWhite = $('.bg-white'),
+			bgGray = $('.bg-gray'),
+			soundTitleBg = $('.sound').find('.title__bg'),
+			soundTitle = $('.sound').find('.title .h2'),
+			block1 = $('.sound').find('.js-block1'),
+			block2 = $('.sound').find('.js-block2'),
+			block3 = $('.sound').find('.js-block3'),
+			block4 = $('.sound').find('.js-block4'),
+			height = $('.sound').height();
 
-		height = $('.sound').height();
-
-		height = height*0.75;
 		// init controller
 		var controllerSound = new ScrollMagic.Controller();
-		
-		var bgWhite = $('.bg-white');
-		var bgGray = $('.bg-gray');
 
 		var playSound = new TimelineMax()
 			.to(bgGray, 2, {transform:'rotate(-40deg)'})
 			.to(bgWhite, 2, {transform:'rotate(-5deg)'}, '-=1');
 
+		var showSound = new TimelineMax()
+			.to(soundTitleBg, 0.8, {opacity:1})
+			.to(soundTitle, 0.8, {opacity:1}, '-=0.2')
+			.to(block1, 0.3, {opacity:1, transform:'translateY(0)'})
+			.to(block2, 0.3, {opacity:1, transform:'translateY(0)'})
+			.to(block3, 0.3, {opacity:1, transform:'translateY(0)'});
+
 		// build scene
 		var sound = new ScrollMagic.Scene({
 			offset: 0,
-			triggerElement: sound,
+			triggerElement: soundWrap,
 			duration: height
 		})
 			.addTo(controllerSound)
 			.setTween(playSound);
+
+		var soundContent = new ScrollMagic.Scene({
+			offset: height/3,
+			triggerElement: soundWrap
+		})
+			.addTo(controllerSound)
+			.setTween(showSound);
+
+		var soundRipple = new ScrollMagic.Scene({
+			offset: height/2,
+			triggerElement: soundWrap,
+			duration: height
+		})	
+			.addTo(controllerSound)
+			.on('enter', function(){
+				block4.addClass('is-ripple');
+			})
+			.on('leave', function(){
+				block4.removeClass('is-ripple');
+			})
 	}
 	sound();
 
