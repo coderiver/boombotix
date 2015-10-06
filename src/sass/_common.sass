@@ -55,21 +55,74 @@ body
 	font-style: italic
 	color: #797a7a
 	transition: background 300ms
-	opacity: 0
+	//opacity: 0
 	transform: translateY(30px)
-	&:hover
-		background: #ECE6D9 
+	.buy-btn__price
+		position: relative
+		height: 73px 
+		line-height: 70px
+		border-radius: 35px 0 0 35px
+		&:after
+			content: ""
+			position: absolute
+			top: 1px
+			right: -8px
+			width: 70px
+			height: 70px
+			background: #eeece8
+			border-radius: 50%
+			transition: background 300ms
+			z-index: 2
+		span
+			position: relative
+			z-index: 3	 
 	.buy-btn__right
 		position: absolute
 		top: 0
 		right: 0
 		bottom: 0
-		width: 95px 
+		width: 80px 
 		padding-top: 22px
-		background: url(../img/buy-btn-bg.png) 
+		border-radius: 0 35px 35px 0
+		background: #b59171  
 		+cover 
 		font-size: 24px
 		color: #fff
+		&:before
+			content: ""
+			position: absolute
+			top: 8px
+			left: -9px
+			width: 30px
+			height: 10px
+			transform: rotate(50deg)
+			background: #b59171
+			border-radius: 10px
+		&:after
+			content: ""
+			position: absolute
+			bottom: 8px
+			left: -9px
+			width: 30px
+			height: 10px
+			transform: rotate(-50deg)
+			background: #b59171
+			border-radius: 10px
+	&:hover
+		background: #ECE6D9
+		.buy-btn__price
+			&:after
+				background: #ECE6D9
+	&.buy-btn_gold
+		background: #faf5ee
+		.buy-btn__price
+			&:after
+				background: #faf5ee
+		&:hover
+			background: #F5EBDD
+			.buy-btn__price
+				&:after
+					background: #F5EBDD 		 						  
 
 .h2
 	+din
@@ -85,6 +138,12 @@ body
 	text-transform: uppercase
 	color: rgb(33, 34, 34)
 	line-height: 1
+.h4
+	+din
+	font-size: 60px
+	text-transform: uppercase
+	line-height: 1
+	color: #f9f7f6 	
 
 .title
 	position: relative
@@ -92,7 +151,7 @@ body
 		position: relative
 		line-height: 1 
 		z-index: 2
-		opacity: 0
+		//opacity: 0
 	.title__bg
 		position: absolute
 		top: -85px
@@ -105,7 +164,7 @@ body
 		text-transform: uppercase
 		white-space: nowrap
 		color: rgba(#c4aa8d, 0.06)
-		opacity: 0 
+		//opacity: 0 
 		z-index: 1
 
 
