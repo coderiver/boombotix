@@ -126,7 +126,7 @@ $(document).ready(function() {
 
 	};
 
-	// startScreen();
+	startScreen();
 
 	// sound section
 
