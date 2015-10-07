@@ -37,9 +37,15 @@ html { box-sizing: border-box; }
 
 .icon-ruler:before { content: ""; }
 
+.icon-storage:before { content: ""; }
+
 .icon-basket:before { content: ""; }
 
 .icon-feather:before { content: ""; }
+
+.icon-water:before { content: ""; }
+
+.icon-battery:before { content: ""; }
 
 @font-face { font-family: DinCond-Regular; src: url("fonts/ufonts_com_dincondregularopentype.eot"); src: url("fonts/ufonts_com_dincondregularopentype.eot?#iefix") format("embedded-opentype"), url("fonts/ufonts_com_dincondregularopentype.woff2") format("woff2"), url("fonts/ufonts_com_dincondregularopentype.woff") format("woff"), url("fonts/ufonts_com_dincondregularopentype.ttf") format("truetype"); font-weight: normal; font-style: normal; }
 @font-face { font-family: DinCond-Medium; src: url("fonts/ufonts_com_dincondmediumopentype.eot"); src: url("fonts/ufonts_com_dincondmediumopentype.eot?#iefix") format("embedded-opentype"), url("fonts/ufonts_com_dincondmediumopentype.woff2") format("woff2"), url("fonts/ufonts_com_dincondmediumopentype.woff") format("woff"), url("fonts/ufonts_com_dincondmediumopentype.ttf") format("truetype"); font-weight: normal; font-style: normal; }
@@ -121,6 +127,8 @@ body { font-family: "Merriweather"; -webkit-font-smoothing: antialiased; -moz-os
 .detail:after { content: ""; position: absolute; bottom: 0; left: 50%; width: 72px; height: 3px; margin-left: -36px; background: #e4c4a4; }
 .detail .detail__value { font-family: "DinCond-Regular", sans-serif; font-weight: normal; font-style: normal; font-size: 70px; color: #212222; }
 .detail .detail__name { font-family: "Merriweather"; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-size: 21px; font-style: italic; letter-spacing: 2px; color: #797a7a; }
+.detail.detail_white:after { background: #b4b3b4; }
+.detail.detail_white .detail__value { color: #b4b3b4; }
 
 .portability { position: relative; height: calc(100vh + 200px); width: 100%; pointer-events: auto; z-index: 2; }
 .portability .portability__in { height: 100%; background-image: linear-gradient(to right, #eedec6, #cfbda4); }
@@ -137,8 +145,12 @@ body { font-family: "Merriweather"; -webkit-font-smoothing: antialiased; -moz-os
 .info .info__img { position: relative; float: left; width: 87px; height: 87px; text-align: center; margin-right: 35px; font-size: 35px; border-radius: 50%; background: #e3d2bb; box-shadow: -1px 3px 7px rgba(197, 179, 158, 0.35); color: #686155; }
 .info .info__img .icon-feather { position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%); font-size: 40px; }
 .info .info__img .icon-ruler { position: absolute; top: 7%; left: 55%; -webkit-transform: scale(1, -1) translate(-50%, -50%); -ms-transform: scale(1, -1) translate(-50%, -50%); transform: scale(1, -1) translate(-50%, -50%); }
+.info .info__img .icon-storage { position: absolute; top: 23px; left: 24px; font-size: 40px; }
+.info .info__img .icon-water { position: absolute; top: 23px; left: 18px; }
+.info .info__img .icon-battery { position: absolute; top: 37px; left: 24px; font-size: 16px; }
 .info .info__value { font-family: "DinCond-Regular", sans-serif; font-weight: normal; font-style: normal; color: #212222; font-size: 50px; text-transform: uppercase; }
 .info .info__name { font-family: "Merriweather"; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-size: 16px; letter-spacing: 2px; color: #797a7a; }
+.info.info_white .info__img { background: #efede9; }
 
 .technology { position: relative; height: 100vh; padding-top: 180px; pointer-events: auto; background: #f9f7f6; z-index: 2; }
 .technology .title { text-align: center; }
@@ -193,6 +205,26 @@ body { font-family: "Merriweather"; -webkit-font-smoothing: antialiased; -moz-os
 .gallery .gallery__block.gallery__high { height: 100%; }
 .gallery .gallery__block img { min-height: 100%; min-width: 100%; transition: -webkit-transform 300ms; transition: transform 300ms; }
 .gallery .gallery__block:hover img { -webkit-transform: scale(1.1); -ms-transform: scale(1.1); transform: scale(1.1); }
+
+.waterproof { position: relative; height: 100vh; pointer-events: auto; z-index: 2; background: radial-gradient(#2B2829, #0b0a0a); }
+.waterproof .waterproof__in { position: absolute; top: 0; bottom: 0; right: 0; left: 0; padding-top: 140px; }
+.waterproof .waterproof__in .h2 { margin-bottom: 60px; text-align: center; color: #b4b3b4; }
+.waterproof .waterproof__img { float: right; width: 40%; margin: 0 auto; }
+.waterproof .waterproof__img img { display: block; width: 100%; }
+.waterproof .waterproof__right { float: right; width: 30%; padding-top: 8%; }
+
+.inside { position: relative; height: 100vh; pointer-events: auto; padding-top: 100px; z-index: 2; background: #f2f2f1; }
+.inside .h2 { text-align: center; margin-bottom: 100px; }
+.inside .inside__in { *zoom: 1; max-width: 1400px; margin: 0 auto; }
+.inside .inside__in:after { content: " "; display: table; clear: both; }
+.inside .inside__left { float: left; width: 25%; padding-top: 70px; *zoom: 1; }
+.inside .inside__left:after { content: " "; display: table; clear: both; }
+.inside .inside__left .detail { float: left; }
+.inside .inside__left img { float: right; }
+.inside .inside__mid { float: left; width: 50%; padding: 0 10%; text-align: center; }
+.inside .inside__img { font-size: 0; margin-bottom: 70px; }
+.inside .inside__img img { max-width: 100%; }
+.inside .inside__right { float: right; width: 25%; padding-top: 50px; }
 
 .push { height: 84vh !important; pointer-events: none; }
 

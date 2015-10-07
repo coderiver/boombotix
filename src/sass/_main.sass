@@ -246,8 +246,12 @@
 		font-size: 21px
 		font-style: italic
 		letter-spacing: 2px 
-		color: #797a7a	 
-
+		color: #797a7a
+	&.detail_white
+		&:after
+			background: #b4b3b4 
+		.detail__value
+			color: #b4b3b4
 // portability
 .portability
 	position: relative
@@ -317,6 +321,20 @@
 			top: 7%
 			left: 55%
 			transform: scale(1, -1)	translate(-50%, -50%)
+		.icon-storage
+			position: absolute
+			top: 23px
+			left: 24px
+			font-size: 40px	
+		.icon-water
+			position: absolute
+			top: 23px
+			left: 18px
+		.icon-battery
+			position: absolute
+			top: 37px
+			left: 24px
+			font-size: 16px	
 	.info__value
 		+din
 		color: #212222
@@ -326,7 +344,10 @@
 		+mw
 		font-size: 16px
 		letter-spacing: 2px
-		color: #797a7a  			 
+		color: #797a7a
+	&.info_white
+		.info__img
+			background: #efede9 	  			 
 
 // technology
 .technology
@@ -533,8 +554,77 @@
 			transition: transform 300ms
 		&:hover
 			img
-				transform: scale(1.1) 						 
-		 
+				transform: scale(1.1)
+				
+// waterproof
+.waterproof
+	position: relative
+	height: 100vh
+	pointer-events: auto
+	z-index: 2
+	+gr(#2B2829, #0b0a0a)	
+	.waterproof__in
+		position: absolute
+		top: 0
+		bottom: 0
+		right: 0
+		left: 0
+		padding-top: 140px
+		.h2
+			margin-bottom: 60px
+			text-align: center			 						 
+			color: #b4b3b4
+	.waterproof__img
+		float: right
+		width: 40%
+		margin: 0 auto
+		img
+			display: block
+			width: 100%
+	.waterproof__right
+		float: right
+		width: 30%
+		padding-top: 8%
+		
+// inside
+.inside
+	position: relative
+	height: 100vh
+	pointer-events: auto
+	padding-top: 100px
+	z-index: 2
+	background: #f2f2f1
+	.h2
+		text-align: center
+		margin-bottom: 100px
+	.inside__in
+		+clr
+		max-width: 1400px
+		margin: 0 auto 
+	.inside__left
+		float: left
+		width: 25%
+		padding-top: 70px
+		+clr
+		.detail
+			float: left
+		img
+			float: right	
+	.inside__mid
+		float: left
+		width: 50%
+		padding: 0 10% 
+		text-align: center
+	.inside__img
+		font-size: 0
+		margin-bottom: 70px 
+		img
+			max-width: 100%
+	.inside__right
+		float: right
+		width: 25%
+		padding-top: 50px		
+
 // footer
 .push
 	height: 84vh!important
