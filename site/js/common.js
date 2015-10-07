@@ -212,6 +212,63 @@ $(document).ready(function() {
 	}
 	portability();
 
+	// select color
+	(function (){
+
+		var speakers = {
+			gray: {
+				color: '#e5e5e5',
+				btnStyle: 'buy-btn_gray'
+			},
+			gold: {
+				color: '#eee1d0',
+				btnStyle: 'buy-btn_gold'
+			},
+			black: {
+				color: '#d5d5d5',
+				btnStyle: 'buy-btn_black'
+			}
+		}
+
+		var navRadio = $('.js-pick-color input'),
+			wrap = $('.colorpicker'),
+			model = wrap.find('.model'),
+			modelBg = model.find('.model__bg'),
+			modelImg = model.find('.model__view img'),
+			btn = wrap.find('.buy-btn');
+
+		navRadio.on('click', function(){
+			var radio = $(this).closest('.js-pick-color'),
+				radioColor = $(this).data('color');
+
+			if (radioColor == 'gray') {
+				modelBg.css({
+					'background': speakers.gray.color
+				}, 300);
+				modelImg.removeClass('is-active');
+				$('.model__view .'+radioColor+'').addClass('is-active');
+				btn.removeClass().addClass('buy-btn ' + speakers.gray.btnStyle);
+			}
+			else if (radioColor == 'gold') {
+				modelBg.css({
+					'background': speakers.gold.color
+				}, 300);
+				modelImg.removeClass('is-active');
+				$('.model__view .'+radioColor+'').addClass('is-active');
+				btn.removeClass().addClass('buy-btn ' + speakers.gold.btnStyle);
+			}
+			else if (radioColor == 'black') {
+				modelBg.css({
+					'background': speakers.black.color
+				}, 300);
+				modelImg.removeClass('is-active');
+				$('.model__view .'+radioColor+'').addClass('is-active');
+				btn.removeClass().addClass('buy-btn ' + speakers.black.btnStyle);
+			}
+			
+		});
+
+	}());
 
 
 

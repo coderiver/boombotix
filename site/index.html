@@ -155,20 +155,20 @@
 						<h2 class="h2">pick your color</h2>
 						<ul class="colorpicker__nav">
 							<li>
-								<label class="radio radio_gray">
-									<input type="radio" name="color">
+								<label class="radio radio_gray js-pick-color">
+									<input type="radio" data-color="gray" name="color">
 									<span>gray</span>
 								</label>
 							</li>
 							<li>
-								<label class="radio radio_gold">
-									<input type="radio" checked="checked" name="color">
+								<label class="radio radio_gold js-pick-color">
+									<input type="radio" data-color="gold" checked="checked" name="color">
 									<span>gold</span>
 								</label>
 							</li>
 							<li>
-								<label class="radio radio_black">
-									<input type="radio" name="color">
+								<label class="radio radio_black js-pick-color">
+									<input type="radio" data-color="black" name="color">
 									<span>black</span>
 								</label>
 							</li>
@@ -186,7 +186,9 @@
 				<div class="colorpicker__right model">
 					<div class="model__bg"></div>
 					<div class="model__view">
-						<img src="img/model-gold.png" alt="">
+						<img src="img/model-gray.png" class="gray" alt="">
+						<img src="img/model-gold.png" class="gold is-active" alt="">
+						<img src="img/model-black.png" class="black" alt="">
 					</div>
 				</div>
 			</div>
@@ -221,8 +223,8 @@
 			<h2 class="h2">water resistant</h2>
 			<div class="waterproof__right">
 				<div class="detail detail_white">
-					<div class="detail__value">100 w</div>
-					<div class="detail__name">Sound Power</div>
+					<div class="detail__value">3 Feet</div>
+					<div class="detail__name">Under Water</div>
 				</div>
 			</div>
 			<div class="waterproof__img">
