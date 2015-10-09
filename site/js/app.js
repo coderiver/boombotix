@@ -389,13 +389,13 @@ $(document).ready(function() {
 		 //scroll magic animations
 
 		function explosion(){
-		 	var totalImages = 666;
+		 	var totalImages = 720;
 		 	var images = new Array();
-		 		for(var i = 419; i < totalImages; i = i + 3) {
-		 			var filename = 'boombotix_final_22.09_00';
+		 		for(var i = 419; i < totalImages; i++) {
+		 			var filename = 'boombotix_05.10_00';
 		 			filename += i + '.jpg';
 		 			var img = new Image;
-		 			img.src = 'img/explosion/' + filename;
+		 			img.src = 'img/new/' + filename;
 		 			images.push(img);
 		 		}
 		 		var canv = document.getElementById('explosion');
@@ -445,13 +445,13 @@ $(document).ready(function() {
 		 				};
 
 		 				// show content from black section
-		 				if (currentLocation > (images.length - 10) && delta == -1) {
+		 				if (currentLocation > 210 && delta == -1) {
 		 					var showBlack = new TimelineMax()
 		 						.to(blackLogos, 0.9, {opacity:1}, '+=1')
 								.to(blackText, 1, {opacity:1});
 							
 		 				};
-		 				if (currentLocation < (images.length - 10) && delta == 1) {
+		 				if (currentLocation < 210 && delta == 1) {
 		 					var showBlack = new TimelineMax()
 		 						.to(blackText, 1, {opacity:0})
 		 						.to(blackLogos, 0.9, {opacity:0});
@@ -485,7 +485,7 @@ $(document).ready(function() {
 
 	};
 
-	// startScreen();
+	startScreen();
 
 	// sound section
 
